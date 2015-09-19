@@ -28,4 +28,12 @@ public class StateTest {
 
     }
 
+    @Test
+    public void shouldBeAliveIfALiveCellHasTwoNeighbours() {
+        int neighbours=2;
+        State state = new State(neighbours);
+        assertEquals("alive",state.calculateMyState());
+
+    }
+
 }
