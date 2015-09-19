@@ -3,6 +3,7 @@ package com.thoughtworks.baseline;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 
@@ -53,14 +54,23 @@ public class OutputTest {
         Output output= new Output();
         String array[][] ={{"-","X","-"},{"-","X","-"},{"-","X","-"}};
         String outputArray[][] ={{"-","-","-"},{"X","X","X"},{"-","-","-"}};
-        assertEquals(output.patternAfterOneTick(array[0][0]),outputArray[0][0]);
+        assertEquals(output.patternAfterOneTick(array[0][0]), outputArray[0][0]);
     }
+
     @Test
     public void shouldBeDeadIfItHasMinusSymbol() {
         Output output= new Output();
         String array[][] ={{"-","X","-"},{"-","X","-"},{"-","X","-"}};
         assertTrue(output.amIDead(array[0][0]));
     }
+
+    @Test
+    public void shouldBeAliveIfItHasCrossSymbol() {
+        Output output= new Output();
+        String array[][] ={{"-","X","-"},{"-","X","-"},{"-","X","-"}};
+        assertFalse(output.amIDead(array[0][1]));
+    }
+
 
 
 

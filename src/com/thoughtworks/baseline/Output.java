@@ -7,6 +7,8 @@ public class Output {
     }
 
     public boolean amIDead(String cell) {
+        if(cell=="X")
+            return false;
         return true;
     }
 }
