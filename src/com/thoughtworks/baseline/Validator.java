@@ -12,7 +12,8 @@ public class Validator {
     boolean validIndex(int firstIndex, int secondIndex) {
         try {
             String string = input[firstIndex][secondIndex];
-        } catch (ArrayIndexOutOfBoundsException exception) {
+        }
+        catch (ArrayIndexOutOfBoundsException exception) {
             return false;
         }
         return true;
