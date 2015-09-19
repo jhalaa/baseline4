@@ -11,4 +11,8 @@ public class Output {
             return false;
         return true;
     }
+
+    public int numberOfNeighboursAlive(String s) {
+        return 1;
+    }
 }
