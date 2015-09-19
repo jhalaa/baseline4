@@ -6,7 +6,6 @@ public class Output {
 
     private final Neighbour neighbour;
     private NextState nextState;
-    private Validator validator;
     private String[][] input;
     private int firstIndex;
     private int secondIndex;
@@ -16,7 +15,6 @@ public class Output {
         this.input = input;
         this.firstIndex = firstIndex;
         this.secondIndex = secondIndex;
-        this.validator = validator;
         this.neighbour = neighbour;
     }
 

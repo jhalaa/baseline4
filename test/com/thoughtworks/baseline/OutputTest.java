@@ -79,5 +79,15 @@ public class OutputTest {
         assertEquals(output.patternAfterOneTick(array[0][1]), outputArray[0][1]);
     }
 
+    @Test
+    public void shouldReturnAValidOutputPatternInFirstRowAndzerothColumnAfterOneTickForABlinkerPattern() {
+        String array[][] ={{"-","X","-"},{"-","X","-"},{"-","X","-"}};
+        String outputArray[][] ={{"-","-","-"},{"X","X","X"},{"-","-","-"}};
+        Validator validator = new Validator(array);
+        Neighbour neighbour = new Neighbour(validator);
+        Output output= new Output(array,1,0,validator,neighbour);
+        assertEquals(output.patternAfterOneTick(array[1][0]), outputArray[1][0]);
+    }
+
 
 }
