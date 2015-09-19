@@ -3,10 +3,12 @@ package com.thoughtworks.baseline;
 //takes a pattern and gives the resultant pattern after one tick
 public class Output {
 
-    State state;
-    String[][] input;
-    int firstIndex;
-    int secondIndex;
+
+    private State state;
+    private String[][] input;
+    private int firstIndex;
+    private int secondIndex;
+    private Validator validator = new Validator(input);
 
     public Output(String[][] input, int firstIndex, int secondIndex) {
         this.input = input;
@@ -37,55 +39,46 @@ public class Output {
 
     public int numberOfNeighboursAlive(String[][] array, int firstIndex, int secondIndex) {
         int count = 0;
-        if (validIndex(array, firstIndex, secondIndex - 1)) {
+        if (validator.validIndex(firstIndex, secondIndex - 1)) {
             if (!(amIDead(array[firstIndex][secondIndex - 1]))) {
                 count++;
             }
         }
-        if (validIndex(array, firstIndex, secondIndex + 1)) {
+        if (validator.validIndex(firstIndex, secondIndex + 1)) {
             if (!(amIDead(array[firstIndex][secondIndex + 1]))) {
                 count++;
             }
         }
-        if (validIndex(array, firstIndex + 1, secondIndex - 1)) {
+        if (validator.validIndex(firstIndex + 1, secondIndex - 1)) {
             if (!(amIDead(array[firstIndex + 1][secondIndex - 1]))) {
                 count++;
             }
         }
-        if (validIndex(array, firstIndex + 1, secondIndex)) {
+        if (validator.validIndex(firstIndex + 1, secondIndex)) {
             if (!(amIDead(array[firstIndex + 1][secondIndex]))) {
                 count++;
             }
         }
-        if (validIndex(array, firstIndex + 1, secondIndex + 1)) {
+        if (validator.validIndex(firstIndex + 1, secondIndex + 1)) {
             if (!(amIDead(array[firstIndex + 1][secondIndex + 1]))) {
                 count++;
             }
         }
-        if (validIndex(array, firstIndex - 1, secondIndex - 1)) {
+        if (validator.validIndex(firstIndex - 1, secondIndex - 1)) {
             if (!(amIDead(array[firstIndex - 1][secondIndex - 1]))) {
                 count++;
             }
         }
-        if (validIndex(array, firstIndex - 1, secondIndex)) {
+        if (validator.validIndex(firstIndex - 1, secondIndex)) {
             if (!(amIDead(array[firstIndex - 1][secondIndex]))) {
                 count++;
             }
         }
-        if (validIndex(array, firstIndex - 1, secondIndex + 1)) {
+        if (validator.validIndex(firstIndex - 1, secondIndex + 1)) {
             if (!(amIDead(array[firstIndex - 1][secondIndex + 1]))) {
                 count++;
             }
         }
         return count;
-    }
-
-    private boolean validIndex(String[][] array, int firstIndex, int secondIndex) {
-        try {
-            String string = array[firstIndex][secondIndex];
-        } catch (ArrayIndexOutOfBoundsException exception) {
-            return false;
-        }
-        return true;
     }
 }
