@@ -13,4 +13,11 @@ public class OutputTest {
         String array[][] ={{"X","X"},{"X","X"}};
         assertEquals(output.patternAfterOneTick(array),array);
     }
+
+    @Test
+    public void shouldReturnAValidOutputPatternAfterOneTickForABoatPattern() {
+        Output output= new Output();
+        String array[][] ={{"X","X","-"},{"X","-","X"},{"-","X","-"}};
+        assertEquals(output.patternAfterOneTick(array),array);
+    }
 }
