@@ -12,4 +12,12 @@ public class StateTest {
 
     }
 
+    @Test
+    public void shouldBeDeadIfALiveCellHasOneNeighbours() {
+        int neighbours=1;
+        State state = new State(neighbours);
+        assertEquals("dead",state.calculateMyState());
+
+    }
+
 }
