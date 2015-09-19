@@ -12,7 +12,14 @@ public class Output {
         return true;
     }
 
-    public int numberOfNeighboursAlive(String s) {
-        return 1;
+    public int numberOfNeighboursAlive(String[][] array, int firstIndex, int secondIndex) {
+        int count =0;
+        if(!(amIDead(array[firstIndex][secondIndex-1]))) {
+            count++;
+        }
+        if(!(amIDead(array[firstIndex][secondIndex+1]))) {
+            count++;
+        }
+        return count;
     }
 }

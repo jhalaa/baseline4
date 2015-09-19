@@ -75,7 +75,14 @@ public class OutputTest {
     public void shouldReturnOneIfTheFirstNeighbourIsAlive() {
         Output output= new Output();
         String array[][] ={{"X","X","-"},{"-","-","-"},{"-","-","-"}};
-        assertEquals(output.numberOfNeighboursAlive(array[0][1]),1);
+        assertEquals(output.numberOfNeighboursAlive(array,0,1),1);
+    }
+
+    @Test
+    public void shouldReturnTwoIfTwoNeighbourIsAlive() {
+        Output output= new Output();
+        String array[][] ={{"X","X","X"},{"-","-","-"},{"-","-","-"}};
+        assertEquals(output.numberOfNeighboursAlive(array,0,1),2);
     }
 
 
