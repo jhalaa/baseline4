@@ -3,6 +3,7 @@ package com.thoughtworks.baseline;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 
 public class OutputTest {
@@ -53,6 +54,12 @@ public class OutputTest {
         String array[][] ={{"-","X","-"},{"-","X","-"},{"-","X","-"}};
         String outputArray[][] ={{"-","-","-"},{"X","X","X"},{"-","-","-"}};
         assertEquals(output.patternAfterOneTick(array[0][0]),outputArray[0][0]);
+    }
+    @Test
+    public void shouldBeDeadIfItHasMinusSymbol() {
+        Output output= new Output();
+        String array[][] ={{"-","X","-"},{"-","X","-"},{"-","X","-"}};
+        assertTrue(output.amIDead(array[0][0]));
     }
 
 

@@ -5,4 +5,8 @@ public class Output {
     public String patternAfterOneTick(String input) {
         return input;
     }
+
+    public boolean amIDead(String cell) {
+        return true;
+    }
 }
