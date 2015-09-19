@@ -74,36 +74,43 @@ public class OutputTest {
     @Test
     public void shouldReturnOneIfTheFirstNeighbourIsAlive() {
         Output output= new Output();
-        String array[][] ={{"X","X","-"},{"-","-","-"},{"-","-","-"}};
-        assertEquals(output.numberOfNeighboursAlive(array,0,1),1);
+        String array[][] ={{"-","-","-"},{"X","X","-"},{"-","-","-"}};
+        assertEquals(output.numberOfNeighboursAlive(array,1,1),1);
     }
 
     @Test
     public void shouldReturnTwoIfTwoNeighbourIsAlive() {
         Output output= new Output();
-        String array[][] ={{"X","X","X"},{"-","-","-"},{"-","-","-"}};
-        assertEquals(output.numberOfNeighboursAlive(array,0,1),2);
+        String array[][] ={{"-","-","-"},{"X","X","X"},{"-","-","-"}};
+        assertEquals(output.numberOfNeighboursAlive(array,1,1),2);
     }
 
     @Test
     public void shouldReturnThreeIfThreeNeighboursAreAlive() {
         Output output= new Output();
-        String array[][] ={{"X","X","X"},{"X","-","-"},{"-","-","-"}};
-        assertEquals(output.numberOfNeighboursAlive(array,0,1),3);
+        String array[][] ={{"-","-","-"},{"X","X","X"},{"X","-","-"}};
+        assertEquals(output.numberOfNeighboursAlive(array,1,1),3);
     }
 
     @Test
     public void shouldReturnFourIfFourNeighboursAreAlive() {
         Output output= new Output();
-        String array[][] ={{"X","X","X"},{"X","X","-"},{"-","-","-"}};
-        assertEquals(output.numberOfNeighboursAlive(array,0,1),4);
+        String array[][] ={{"-","-","-"},{"X","X","X"},{"X","X","-"}};
+        assertEquals(output.numberOfNeighboursAlive(array,1,1),4);
     }
 
     @Test
     public void shouldReturnFiveIfFiveNeighboursAreAlive() {
         Output output= new Output();
-        String array[][] ={{"X","X","X"},{"X","X","X"},{"-","-","-"}};
-        assertEquals(output.numberOfNeighboursAlive(array,0,1),5);
+        String array[][] ={{"-","-","-"},{"X","X","X"},{"X","X","X"}};
+        assertEquals(output.numberOfNeighboursAlive(array,1,1),5);
+    }
+
+    @Test
+    public void shouldReturnSixIfSixNeighboursAreAlive() {
+        Output output= new Output();
+        String array[][] ={{"X","-","-"},{"X","X","X"},{"X","X","X"}};
+        assertEquals(output.numberOfNeighboursAlive(array,1,1),6);
     }
 
 
