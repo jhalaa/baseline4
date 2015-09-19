@@ -20,4 +20,12 @@ public class StateTest {
 
     }
 
+    @Test
+    public void shouldBeDeadIfALiveCellHasMoreThanThreeNeighbours() {
+        int neighbours=4;
+        State state = new State(neighbours);
+        assertEquals("dead",state.calculateMyState());
+
+    }
+
 }
