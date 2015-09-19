@@ -39,6 +39,13 @@ public class OutputTest {
         assertEquals(output.patternAfterOneTick(array[1][1]),array1[1][1]);
     }
 
+    @Test
+    public void shouldReturnAValidOutputPatternInZerothRowAndZerothColumnAfterOneTickForABoatPattern() {
+        Output output= new Output();
+        String array[][] ={{"X","X","-"},{"X","-","X"},{"-","X","-"}};
+        String array1[][] ={{"X","X","-"},{"X","-","X"},{"-","X","-"}};
+        assertEquals(output.patternAfterOneTick(array[0][0]),array1[0][0]);
+    }
 
 
 }
