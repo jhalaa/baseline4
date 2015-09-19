@@ -2,13 +2,15 @@ package com.thoughtworks.baseline;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static junit.framework.TestCase.assertEquals;
+
 
 public class OutputTest {
 
     @Test
     public void shouldReturnAValidOutputPatternAfterOneTickForABlockPattern() {
         Output output= new Output();
-        assertEquals(output.patternAfterOneTick("XX\nXX"),"XX\nXX");
+        String array[][] ={{"X","X"},{"X","X"}};
+        assertEquals(output.patternAfterOneTick(array),array);
     }
 }
