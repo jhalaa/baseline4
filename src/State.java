@@ -9,7 +9,7 @@ public class State {
     }
 
     public String calculateMyState() {
-        if(neighbours==2)
+        if(neighbours==2 || neighbours==3)
             return "alive";
         return "dead";
     }

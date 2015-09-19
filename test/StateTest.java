@@ -36,4 +36,12 @@ public class StateTest {
 
     }
 
+    @Test
+    public void shouldBeAliveIfALiveCellHasThreeNeighbours() {
+        int neighbours=3;
+        State state = new State(neighbours);
+        assertEquals("alive",state.calculateMyState());
+
+    }
+
 }
