@@ -20,6 +20,9 @@ public class Output {
         if(!(amIDead(array[firstIndex][secondIndex+1]))) {
             count++;
         }
+        if(!(amIDead(array[firstIndex+1][secondIndex-1]))) {
+            count++;
+        }
         return count;
     }
 }

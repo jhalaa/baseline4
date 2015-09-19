@@ -85,6 +85,13 @@ public class OutputTest {
         assertEquals(output.numberOfNeighboursAlive(array,0,1),2);
     }
 
+    @Test
+    public void shouldReturnThreeIfThreeNeighboursAreAlive() {
+        Output output= new Output();
+        String array[][] ={{"X","X","X"},{"X","-","-"},{"-","-","-"}};
+        assertEquals(output.numberOfNeighboursAlive(array,0,1),3);
+    }
+
 
 
 }
