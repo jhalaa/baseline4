@@ -8,7 +8,7 @@ public class StateTest {
     public void shouldBeDeadIfALiveCellHasZeroNeighbours() {
         int neighbours=0;
         State state = new State(neighbours);
-        assertEquals("dead",state.calculateMyState());
+        assertEquals("dead",state.calculateStateOfAliveCell());
 
     }
 
@@ -16,7 +16,7 @@ public class StateTest {
     public void shouldBeDeadIfALiveCellHasOneNeighbours() {
         int neighbours=1;
         State state = new State(neighbours);
-        assertEquals("dead",state.calculateMyState());
+        assertEquals("dead",state.calculateStateOfAliveCell());
 
     }
 
@@ -24,7 +24,7 @@ public class StateTest {
     public void shouldBeDeadIfALiveCellHasMoreThanThreeNeighbours() {
         int neighbours=4;
         State state = new State(neighbours);
-        assertEquals("dead",state.calculateMyState());
+        assertEquals("dead",state.calculateStateOfAliveCell());
 
     }
 
@@ -32,7 +32,7 @@ public class StateTest {
     public void shouldBeAliveIfALiveCellHasTwoNeighbours() {
         int neighbours=2;
         State state = new State(neighbours);
-        assertEquals("alive",state.calculateMyState());
+        assertEquals("alive",state.calculateStateOfAliveCell());
 
     }
 
@@ -40,8 +40,17 @@ public class StateTest {
     public void shouldBeAliveIfALiveCellHasThreeNeighbours() {
         int neighbours=3;
         State state = new State(neighbours);
-        assertEquals("alive",state.calculateMyState());
+        assertEquals("alive",state.calculateStateOfAliveCell());
 
     }
+
+    @Test
+    public void shouldBeDeadForDeadCellWithAnyNeighbours() {
+        int neighbours=1;
+        State state = new State(neighbours);
+        assertEquals("dead",state.calculateStateOfDeadCell());
+
+    }
+
 
 }

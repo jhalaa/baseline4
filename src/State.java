@@ -8,9 +8,13 @@ public class State {
         this.neighbours = neighbours;
     }
 
-    public String calculateMyState() {
+    public String calculateStateOfAliveCell() {
         if(neighbours==2 || neighbours==3)
             return "alive";
+        return "dead";
+    }
+
+    public String calculateStateOfDeadCell() {
         return "dead";
     }
 }
