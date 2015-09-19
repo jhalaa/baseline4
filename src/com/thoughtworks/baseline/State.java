@@ -1,3 +1,4 @@
+package com.thoughtworks.baseline;
 
 //tells us if a cell is dead or alive
 public class State {

@@ -1,3 +1,6 @@
+package com.thoughtworks.baseline;
+
+import com.thoughtworks.baseline.State;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
