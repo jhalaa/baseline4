@@ -1,11 +1,11 @@
 package com.thoughtworks.baseline;
 
 //tells us if a cell is dead or alive
-public class State {
+public class NextState {
 
     private int neighbours;
 
-    public State(int neighbours) {
+    public NextState(int neighbours) {
         this.neighbours = neighbours;
     }
 

@@ -4,7 +4,7 @@ package com.thoughtworks.baseline;
 public class Output {
 
 
-    private State state;
+    private NextState nextState;
     private Validator validator;
     private String[][] input;
     private int firstIndex;
@@ -19,65 +19,58 @@ public class Output {
     }
 
     public String patternAfterOneTick(String cell) {
-        boolean isDead = amIDead(cell);
         int numberOfNeighbours = numberOfNeighboursAlive(input, firstIndex, secondIndex);
-        if (isDead) {
-            state = new State(numberOfNeighbours);
-            if (state.calculateStateOfDeadCell().equals("alive"))
+        if (cell.equals("-")) {
+            nextState = new NextState(numberOfNeighbours);
+            if (nextState.calculateStateOfDeadCell().equals("alive"))
                 return "X";
         } else {
-            state = new State(numberOfNeighbours);
-            if (state.calculateStateOfAliveCell().equals("alive"))
+            nextState = new NextState(numberOfNeighbours);
+            if (nextState.calculateStateOfAliveCell().equals("alive"))
                 return "X";
         }
         return "-";
     }
 
-    public boolean amIDead(String cell) {
-        if (cell == "X")
-            return false;
-        return true;
-    }
-
     public int numberOfNeighboursAlive(String[][] array, int firstIndex, int secondIndex) {
         int count = 0;
         if (validator.validIndex(firstIndex, secondIndex - 1)) {
-            if (!(amIDead(array[firstIndex][secondIndex - 1]))) {
+            if (!(array[firstIndex][secondIndex - 1].equals("-"))) {
                 count++;
             }
         }
         if (validator.validIndex(firstIndex, secondIndex + 1)) {
-            if (!(amIDead(array[firstIndex][secondIndex + 1]))) {
+            if (!(array[firstIndex][secondIndex + 1].equals("-"))) {
                 count++;
             }
         }
         if (validator.validIndex(firstIndex + 1, secondIndex - 1)) {
-            if (!(amIDead(array[firstIndex + 1][secondIndex - 1]))) {
+            if (!(array[firstIndex + 1][secondIndex - 1].equals("-"))) {
                 count++;
             }
         }
         if (validator.validIndex(firstIndex + 1, secondIndex)) {
-            if (!(amIDead(array[firstIndex + 1][secondIndex]))) {
+            if (!(array[firstIndex + 1][secondIndex].equals("-"))) {
                 count++;
             }
         }
         if (validator.validIndex(firstIndex + 1, secondIndex + 1)) {
-            if (!(amIDead(array[firstIndex + 1][secondIndex + 1]))) {
+            if (!(array[firstIndex + 1][secondIndex + 1].equals("-"))) {
                 count++;
             }
         }
         if (validator.validIndex(firstIndex - 1, secondIndex - 1)) {
-            if (!(amIDead(array[firstIndex - 1][secondIndex - 1]))) {
+            if (!(array[firstIndex - 1][secondIndex - 1].equals("-"))) {
                 count++;
             }
         }
         if (validator.validIndex(firstIndex - 1, secondIndex)) {
-            if (!(amIDead(array[firstIndex - 1][secondIndex]))) {
+            if (!(array[firstIndex - 1][secondIndex].equals("-"))) {
                 count++;
             }
         }
         if (validator.validIndex(firstIndex - 1, secondIndex + 1)) {
-            if (!(amIDead(array[firstIndex - 1][secondIndex + 1]))) {
+            if (!(array[firstIndex - 1][secondIndex + 1].equals("-"))) {
                 count++;
             }
         }

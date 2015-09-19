@@ -64,22 +64,6 @@ public class OutputTest {
     }
 
     @Test
-    public void shouldBeDeadIfItHasMinusSymbol() {
-        String array[][] ={{"-","X","-"},{"-","X","-"},{"-","X","-"}};
-        Validator validator = new Validator(array);
-        Output output= new Output(array,0,0,validator);
-        assertTrue(output.amIDead(array[0][0]));
-    }
-
-    @Test
-    public void shouldBeAliveIfItHasCrossSymbol() {
-        String array[][] ={{"-","X","-"},{"-","X","-"},{"-","X","-"}};
-        Validator validator = new Validator(array);
-        Output output= new Output(array,0,1,validator);
-        assertFalse(output.amIDead(array[0][1]));
-    }
-
-    @Test
     public void shouldReturnOneIfTheFirstNeighbourIsAlive() {
         String array[][] ={{"-","-","-"},{"X","X","-"},{"-","-","-"}};
         Validator validator = new Validator(array);
