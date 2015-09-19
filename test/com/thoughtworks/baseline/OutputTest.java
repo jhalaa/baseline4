@@ -11,129 +11,136 @@ public class OutputTest {
 
     @Test
     public void shouldReturnAValidOutputPatternInZerothRowAndZerothColumnAfterOneTickForABlockPattern() {
-        Output output= new Output();
         String array[][] ={{"X","X"},{"X","X"}};
         String array1[][] ={{"X","X"},{"X","X"}};
+        Output output= new Output(array,0,0);
         assertEquals(output.patternAfterOneTick(array[0][0]),array1[0][0]);
     }
 
     @Test
     public void shouldReturnAValidOutputPatternInZerothRowAndFirstColumnAfterOneTickForABlockPattern() {
-        Output output= new Output();
         String array[][] ={{"X","X"},{"X","X"}};
         String array1[][] ={{"X","X"},{"X","X"}};
+        Output output= new Output(array,0,1);
         assertEquals(output.patternAfterOneTick(array[0][1]),array1[0][1]);
     }
 
     @Test
     public void shouldReturnAValidOutputPatternInFirstRowAndZerothColumnAfterOneTickForABlockPattern() {
-        Output output= new Output();
         String array[][] ={{"X","X"},{"X","X"}};
         String array1[][] ={{"X","X"},{"X","X"}};
+        Output output= new Output(array,1,0);
         assertEquals(output.patternAfterOneTick(array[1][0]),array1[1][0]);
     }
 
     @Test
     public void shouldReturnAValidOutputPatternInFirstRowAndFirstColumnAfterOneTickForABlockPattern() {
-        Output output= new Output();
         String array[][] ={{"X","X"},{"X","X"}};
         String array1[][] ={{"X","X"},{"X","X"}};
+        Output output= new Output(array,1,1);
         assertEquals(output.patternAfterOneTick(array[1][1]),array1[1][1]);
     }
 
     @Test
     public void shouldReturnAValidOutputPatternInZerothRowAndZerothColumnAfterOneTickForABoatPattern() {
-        Output output= new Output();
         String array[][] ={{"X","X","-"},{"X","-","X"},{"-","X","-"}};
         String array1[][] ={{"X","X","-"},{"X","-","X"},{"-","X","-"}};
+        Output output= new Output(array,0,0);
         assertEquals(output.patternAfterOneTick(array[0][0]),array1[0][0]);
     }
 
     @Test
     public void shouldReturnAValidOutputPatternInZerothRowAndZerothColumnAfterOneTickForABlinkerPattern() {
-        Output output= new Output();
         String array[][] ={{"-","X","-"},{"-","X","-"},{"-","X","-"}};
         String outputArray[][] ={{"-","-","-"},{"X","X","X"},{"-","-","-"}};
+        Output output= new Output(array,0,0);
         assertEquals(output.patternAfterOneTick(array[0][0]), outputArray[0][0]);
     }
 
     @Test
     public void shouldBeDeadIfItHasMinusSymbol() {
-        Output output= new Output();
         String array[][] ={{"-","X","-"},{"-","X","-"},{"-","X","-"}};
+        Output output= new Output(array,0,0);
         assertTrue(output.amIDead(array[0][0]));
     }
 
     @Test
     public void shouldBeAliveIfItHasCrossSymbol() {
-        Output output= new Output();
         String array[][] ={{"-","X","-"},{"-","X","-"},{"-","X","-"}};
+        Output output= new Output(array,0,1);
         assertFalse(output.amIDead(array[0][1]));
     }
 
     @Test
     public void shouldReturnOneIfTheFirstNeighbourIsAlive() {
-        Output output= new Output();
         String array[][] ={{"-","-","-"},{"X","X","-"},{"-","-","-"}};
-        assertEquals(output.numberOfNeighboursAlive(array,1,1),1);
+        Output output= new Output(array,1,1);
+        assertEquals(output.numberOfNeighboursAlive(array, 1, 1), 1);
     }
 
     @Test
     public void shouldReturnTwoIfTwoNeighbourIsAlive() {
-        Output output= new Output();
         String array[][] ={{"-","-","-"},{"X","X","X"},{"-","-","-"}};
-        assertEquals(output.numberOfNeighboursAlive(array,1,1),2);
+        Output output= new Output(array,1,1);
+        assertEquals(output.numberOfNeighboursAlive(array, 1, 1), 2);
     }
 
     @Test
     public void shouldReturnThreeIfThreeNeighboursAreAlive() {
-        Output output= new Output();
         String array[][] ={{"-","-","-"},{"X","X","X"},{"X","-","-"}};
+        Output output= new Output(array,1,1);
         assertEquals(output.numberOfNeighboursAlive(array,1,1),3);
     }
 
     @Test
     public void shouldReturnFourIfFourNeighboursAreAlive() {
-        Output output= new Output();
         String array[][] ={{"-","-","-"},{"X","X","X"},{"X","X","-"}};
+        Output output= new Output(array,1,1);
         assertEquals(output.numberOfNeighboursAlive(array,1,1),4);
     }
 
     @Test
     public void shouldReturnFiveIfFiveNeighboursAreAlive() {
-        Output output= new Output();
         String array[][] ={{"-","-","-"},{"X","X","X"},{"X","X","X"}};
+        Output output= new Output(array,1,1);
         assertEquals(output.numberOfNeighboursAlive(array,1,1),5);
     }
 
     @Test
     public void shouldReturnSixIfSixNeighboursAreAlive() {
-        Output output= new Output();
         String array[][] ={{"X","-","-"},{"X","X","X"},{"X","X","X"}};
+        Output output= new Output(array,1,1);
         assertEquals(output.numberOfNeighboursAlive(array,1,1),6);
     }
 
     @Test
     public void shouldReturnSevenIfSevenNeighboursAreAlive() {
-        Output output= new Output();
         String array[][] ={{"X","X","-"},{"X","X","X"},{"X","X","X"}};
+        Output output= new Output(array,1,1);
         assertEquals(output.numberOfNeighboursAlive(array,1,1),7);
     }
 
     @Test
     public void shouldReturnEightIfEightNeighboursAreAlive() {
-        Output output= new Output();
         String array[][] ={{"X","X","X"},{"X","X","X"},{"X","X","X"}};
+        Output output= new Output(array,1,1);
         assertEquals(output.numberOfNeighboursAlive(array,1,1),8);
     }
 
     @Test
     public void shouldHandleArrayOutOfBoundException() {
-        Output output= new Output();
         String array[][] ={{"X","X","X"},{"X","X","X"},{"X","X","X"}};
+        Output output= new Output(array,1,0);
         assertEquals(output.numberOfNeighboursAlive(array,1,0),5);
     }
 
+    @Test
+    public void shouldReturnAValidOutputPatternInZerothRowAndFirstColumnAfterOneTickForABlinkerPattern() {
+        String array[][] ={{"-","X","-"},{"-","X","-"},{"-","X","-"}};
+        String outputArray[][] ={{"-","-","-"},{"X","X","X"},{"-","-","-"}};
+        Output output= new Output(array,0,1);
+        assertEquals(output.patternAfterOneTick(array[0][1]), outputArray[0][1]);
+    }
 
 
 }
