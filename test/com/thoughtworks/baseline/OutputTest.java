@@ -15,6 +15,14 @@ public class OutputTest {
         assertEquals(output.patternAfterOneTick(array[0][0]),array1[0][0]);
     }
 
+    @Test
+    public void shouldReturnAValidOutputPatternInZerothRowAndFirstColumnAfterOneTickForABlockPattern() {
+        Output output= new Output();
+        String array[][] ={{"X","X"},{"X","X"}};
+        String array1[][] ={{"X","X"},{"X","X"}};
+        assertEquals(output.patternAfterOneTick(array[0][1]),array1[0][1]);
+    }
+
 
 
 }
