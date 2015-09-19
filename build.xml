@@ -1,18 +1,10 @@
 <?xml version = "1.0"?>
-<project name="biblioteca_twu" basedir=".">
+<project name="baseline4" basedir=".">
 
-    <property name = "project.name" value="biblioteca_twu" />
-    <property name = "main.name" value = "BibliotecaMain"/>
+    <property name = "project.name" value="baseline4" />
+    <property name = "main.name" value = "BaseLineMain"/>
     <property name = "package.name" value="com.twu.biblioteca" />
 
-    <path id="cobertura.classpath">
-        <fileset dir="lib/cobertura-2.1.1">
-            <include name="cobertura*.jar" />
-            <include name="lib/**/*.jar" />
-        </fileset>
-    </path>
-
-    <taskdef classpathref="cobertura.classpath" resource="tasks.properties"/>
 
     <target name="build" depends="clean">
         <mkdir dir="out"/>
@@ -33,9 +25,6 @@
     <target name="clean" description="clean previous output directory">
         <delete dir="out"/>
         <delete dir="reports"/>
-        <delete dir="instrumented"/>
-        <delete file="cobertura.log"/>
-        <delete file="cobertura.ser"/>
     </target>
 
     <target name="build-jar" depends="build">
@@ -62,7 +51,6 @@
             <classpath location="lib/system-rules-1.12.0.jar"/>
             <classpath location="lib/mockito-all-1.9.5.jar"/>
             <classpath location="out"/>
-            <classpath refid="cobertura.classpath"/>
             <formatter type="xml"/>
             <batchtest todir="reports" fork="yes">
                 <fileset dir="test">
