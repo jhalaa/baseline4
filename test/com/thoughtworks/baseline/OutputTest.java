@@ -120,6 +120,13 @@ public class OutputTest {
         assertEquals(output.numberOfNeighboursAlive(array,1,1),7);
     }
 
+    @Test
+    public void shouldReturnEightIfEightNeighboursAreAlive() {
+        Output output= new Output();
+        String array[][] ={{"X","X","X"},{"X","X","X"},{"X","X","X"}};
+        assertEquals(output.numberOfNeighboursAlive(array,1,1),8);
+    }
+
 
 
 }
