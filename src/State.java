@@ -15,6 +15,8 @@ public class State {
     }
 
     public String calculateStateOfDeadCell() {
+        if(neighbours==3)
+            return "alive";
         return "dead";
     }
 }
