@@ -127,6 +127,13 @@ public class OutputTest {
         assertEquals(output.numberOfNeighboursAlive(array,1,1),8);
     }
 
+    @Test
+    public void shouldHandleArrayOutOfBoundException() {
+        Output output= new Output();
+        String array[][] ={{"X","X","X"},{"X","X","X"},{"X","X","X"}};
+        assertEquals(output.numberOfNeighboursAlive(array,1,0),5);
+    }
+
 
 
 }
